@@ -1,1 +1,61 @@
-<p>empleados works!</p>
+
+<div class="c">
+
+    <div class="tabla mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="last_name">
+                <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="birthday">
+                <th mat-header-cell *matHeaderCellDef> Birthday </th>
+                <td mat-cell *matCellDef="let element"> {{element.birthday}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+    </div>
+
+
+    <div class="formulario">
+
+        <form [formGroup]="nuevoEmpleadoForm">
+
+            <label for="">Nombre</label>
+            <input formControlName="nombre" placeholder="">
+
+            <label for="">Apellido</label>
+            <input formControlName="apellido" placeholder="">
+
+            <label for="">Fecha de nacimiento</label>
+            <input formControlName="fecha" placeholder="">
+            <button type="button" (click)="subir()">Subir</button>
+       
+        </form>
+
+
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,45 @@
+.c{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 800px;
+}
+
+
+// .tabla {
+//     max-width: 1024px;
+
+//     > tabla{
+//         width: 100%;
+//     }
+// }
+
+table {
+
+    width: 100%;
+
+    td{
+
+        height: 70px;
+
+
+    }
+
+    th{
+        height: 75px;
+        font-size: 15px;
+
+    }
+}
+
+
+.formulario {
+    > form {
+        display: flex;
+        flex-direction: column;
+
+        > input {
+            margin-bottom: 2rem;
+        }
+    }
+}

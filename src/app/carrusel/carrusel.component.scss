@@ -1,0 +1,13 @@
+.c {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 600px;
+
+    & > .ca {
+
+        max-width: 800px;
+    }
+}

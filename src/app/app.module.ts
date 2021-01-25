@@ -14,7 +14,10 @@ import { EmpleadosComponent } from './empleados/empleados.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
+import {MatTableModule} from '@angular/material/table'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatDialogModule,
     DragDropModule,
-    HttpClientModule
+    HttpClientModule,
+    IvyCarouselModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
