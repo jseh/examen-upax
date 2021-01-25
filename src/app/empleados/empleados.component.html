@@ -1,4 +1,18 @@
 
+<div class="bus">
+
+    <mat-form-field appearance="fill" class="im">
+        <mat-label>Buscar</mat-label>
+        <input matInput [(ngModel)]="aBuscar" >
+    </mat-form-field>
+
+    <button mat-raised-button class="b" color="primary" (click)="buscar()">Buscar</button>
+    <button mat-raised-button class="b" color="primary" (click)="limpiar()">Limpiar</button>
+
+
+</div>
+
+{{aBuscar}}
 <div class="c">
 
     <div class="tabla mat-elevation-z8">
@@ -40,16 +54,47 @@
 
         <form [formGroup]="nuevoEmpleadoForm">
 
-            <label for="">Nombre</label>
-            <input formControlName="nombre" placeholder="">
 
-            <label for="">Apellido</label>
-            <input formControlName="apellido" placeholder="">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" required>
+                <mat-error
+                    *ngIf="nuevoEmpleadoForm.controls.nombre.touched && nuevoEmpleadoForm.controls.nombre.invalid">
+                    <span *ngIf="nuevoEmpleadoForm.controls.nombre.errors.required">Este nombre es requerido</span>
+                    <span *ngIf="nuevoEmpleadoForm.controls.nombre.errors.maxLength">Debe tener maximo 30
+                        caracteres</span>
+                </mat-error>
+            </mat-form-field>
 
-            <label for="">Fecha de nacimiento</label>
-            <input formControlName="fecha" placeholder="">
-            <button type="button" (click)="subir()">Subir</button>
-       
+            <mat-form-field appearance="fill">
+                <mat-label>Apellido</mat-label>
+                <input matInput formControlName="apellido" required>
+                <mat-error
+                    *ngIf="nuevoEmpleadoForm.controls.apellido.touched && nuevoEmpleadoForm.controls.apellido.invalid">
+                    <span *ngIf="nuevoEmpleadoForm.controls.apellido.errors.required">Este apellido es requerido</span>
+                    <span *ngIf="nuevoEmpleadoForm.controls.apellido.errors.maxLength">Debe tener maximo 30 caracteres</span>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput formControlName="fecha" required>
+                <mat-error
+                    *ngIf="nuevoEmpleadoForm.controls.fecha.touched && nuevoEmpleadoForm.controls.fecha.invalid">
+                    <span *ngIf="nuevoEmpleadoForm.controls.fecha.errors.required">Este fecha es requerido</span>
+                    <span *ngIf="nuevoEmpleadoForm.controls.fecha.errors.pattern">Debe tener formato yyyy/mm/dd</span>
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <br>
+            <br>
+            <br>
+            <button mat-raised-button class="b" color="primary" (click)="subir()">Subir</button>
+
+
         </form>
 
 

@@ -22,13 +22,11 @@ export class EmpleadosService {
   }
 
 
-  obtenerEmpleadoDeGrupo(id: any): Observable<any> {
+  enviarEmpleado(e: any): Observable<any> {
 
     // const params = new HttpParams();
 
-    // params.set('id', id.toString());
-    return this.http.get(this.api2 + `/getByGroup?id=${id}`);
-    // return this.http.get(this.api + "/getByGroup?", {params: params});
+    return this.http.post(this.api2, { name: e.nombre, last_name: e.apellido, birthday: e.fecha} );
   }
 
 
