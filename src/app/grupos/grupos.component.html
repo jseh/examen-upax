@@ -1,0 +1,49 @@
+
+<div class="example-container">
+    <h2>GRUPOS</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="grupos"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+
+      <div class="example-box" *ngFor="let item of grupos" cdkDrag>{{item.name}}</div>
+
+    </div>
+</div>
+  
+<div class="example-container">
+    <h2>SEPARADOS</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="separados"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+
+      <div class="example-box2" *ngFor="let item of separados; let i = index" cdkDrag>
+
+          {{item.id}}
+          -
+          {{item.name}}
+          <button (click)="eliminar(i)">eliminar</button>
+
+          <br>
+          <div *ngIf="item.empleados != undefined">
+            <div *ngFor="let e of item.empleados">{{e.name}}</div>
+          </div>
+          
+
+      </div>
+
+
+
+    </div>
+</div>
+  
+  
